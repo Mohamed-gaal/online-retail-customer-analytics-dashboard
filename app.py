@@ -18,7 +18,11 @@ from src.config import (
 from src.pipeline import run_pipeline
 
 
-st.set_page_config(page_title="Online Retail Customer Analytics", layout="wide")
+st.set_page_config(
+    page_title="Online Retail Customer Analytics",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
 
 
 @st.cache_data(show_spinner=False)

@@ -10,7 +10,7 @@ An online retailer wants to understand revenue performance, product demand, cust
 
 ## Dashboard Preview
 
-Dashboard screenshots will be added after the first local run.
+![Online Retail Customer Analytics dashboard preview](assets/dashboard-preview.png)
 
 Live Streamlit Cloud link: pending deployment.
 
