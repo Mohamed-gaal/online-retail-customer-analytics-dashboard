@@ -48,7 +48,7 @@ def validate_columns(df: pd.DataFrame) -> None:
 
 
 def load_raw_transactions(path) -> pd.DataFrame:
-    df = pd.read_csv(path, encoding="unicode_escape")
+    df = pd.read_csv(path, encoding="unicode_escape", sep=None, engine="python")
     df.columns = [normalize_column_name(col) for col in df.columns]
     validate_columns(df)
     return df
@@ -65,7 +65,7 @@ def clean_transactions(df: pd.DataFrame) -> pd.DataFrame:
         cleaned["description"].astype("string").str.strip().str.replace(r"\s+", " ", regex=True)
     )
     cleaned["country"] = cleaned["country"].astype("string").str.strip().fillna("Unknown")
-    cleaned["invoice_datetime"] = pd.to_datetime(cleaned["invoice_datetime"], errors="coerce")
+    cleaned["invoice_datetime"] = pd.to_datetime(cleaned["invoice_datetime"], errors="coerce", dayfirst=True)
     cleaned["quantity"] = pd.to_numeric(cleaned["quantity"], errors="coerce")
     cleaned["unit_price"] = pd.to_numeric(cleaned["unit_price"], errors="coerce")
 
